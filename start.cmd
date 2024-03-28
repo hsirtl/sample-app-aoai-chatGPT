@@ -31,7 +31,13 @@ if "%errorlevel%" neq "0" (
 echo.    
 echo Starting backend    
 echo.    
-cd ..  
+cd ..
+echo '##############################################'
+echo 'Python version: '
+call python --version
+echo 'Python packages: '
+call python -m pip freeze
+echo '##############################################'
 start http://127.0.0.1:50505
 call python -m uvicorn app:app  --port 50505 --reload
 if "%errorlevel%" neq "0" (    

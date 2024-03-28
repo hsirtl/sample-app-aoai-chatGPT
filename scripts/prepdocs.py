@@ -230,6 +230,10 @@ if __name__ == "__main__":
         endpoint=f"https://{args.formrecognizerservice}.cognitiveservices.azure.com/",
         credential=formrecognizer_creds,
     )
+    # Replace ' ' by '=' in the embedding endpoint to avoid issues with argparse
+    if args.embeddingendpoint:
+        args.embeddingendpoint = args.embeddingendpoint.replace(' ', '=')
+    print("Embedding endpoint:", args.embeddingendpoint)
     create_and_populate_index(
         args.index, index_client, search_client, form_recognizer_client, azd_credential, args.embeddingendpoint
     )

@@ -232,7 +232,8 @@ def init_openai_client(use_data=SHOULD_USE_DATA):
             raise Exception("AZURE_OPENAI_ENDPOINT or AZURE_OPENAI_RESOURCE is required")
         
         endpoint = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
-        
+        logging.debug(f"Initialize Azure OpenAI client with endpoint: {endpoint}")
+
         # Authentication
         aoai_api_key = AZURE_OPENAI_KEY
         ad_token_provider = None

@@ -24,6 +24,7 @@ export async function getUserInfo(): Promise<UserInfo[]> {
     }
 
     const payload = await response.json();
+    console.log("Identity provider found. Access to chat will be granted. Payload: ", payload)
     return payload;
 }
 
